@@ -20,8 +20,6 @@ type Args = CSSObject | TemplateStringsArray | InterpolationFunction<ThemeProps<
 const styledIf = (method: string, condition: boolean) => (...params: string[]) => (args: Args) => (
   props: Props
 ) => {
-  // const fn = names[method];
-  console.log(Boolean(props[params[0]]));
   return Boolean(props[params[0]]) === condition && css(args);
 };
 
