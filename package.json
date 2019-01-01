@@ -1,0 +1,104 @@
+{
+  "name": "electron-react-ts-starter",
+  "version": "0.0.1",
+  "description": "Electron React Typscript Starter",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:enesTufekci/electron-react-ts-starter.git"
+  },
+  "author": {
+    "name": "Enes Tufekci",
+    "email": "enesxtufekci@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/enesTufekci/electron-react-ts-starter/issues"
+  },
+  "homepage": "https://github.com/enesTufekci/electron-react-ts-starter",
+  "main": "./dist/main.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node ./scripts/start.js",
+    "build": "cross-env NODE_ENV=production node ./scripts/build.js",
+    "dist": "npm run build && node ./scripts/dist.js",
+    "prestart": "npm run build",
+    "start": "electron .",
+    "lint": "tslint 'src/**/*.{ts,tsx}' --project ./tsconfig.json",
+    "precommit": "lint-staged",
+    "test": "jest '(\\/test\\/(?!e2e/)).*'",
+    "pretest:e2e": "npm run build",
+    "test:e2e": "jest '(\\/test\\/e2e/).*'",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,tsx,json,css,scss,md}": [
+      "prettier --config ./.prettierrc --write",
+      "git add"
+    ],
+    "src/**/*.{js,ts,tsx}": [
+      "tslint --project ./tsconfig.json --fix",
+      "git add"
+    ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/test/.+\\.spec)\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "node"
+    ]
+  },
+  "devDependencies": {
+    "@types/electron-devtools-installer": "^2.0.2",
+    "@types/jest": "^21.1.9",
+    "@types/lowdb": "^1.0.6",
+    "@types/react": "^16.4.16",
+    "@types/react-dom": "^16.0.9",
+    "@types/react-hot-loader": "^3.0.5",
+    "@types/uuid": "^3.4.4",
+    "@types/webdriverio": "^4.8.7",
+    "@types/webpack-env": "^1.13.3",
+    "cross-env": "^5.1.3",
+    "css-loader": "^0.28.7",
+    "electron": "^3.0.4",
+    "electron-builder": "^20.28.4",
+    "electron-devtools-installer": "^2.2.4",
+    "file-loader": "^1.1.6",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^0.14.3",
+    "image-webpack-loader": "^3.4.2",
+    "jest": "^23.5.0",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.2",
+    "react-hot-loader": "^3.1.3",
+    "react-test-renderer": "^16.2.0",
+    "spectron": "^3.8.0",
+    "style-loader": "^0.19.1",
+    "ts-jest": "^23.1.4",
+    "ts-loader": "^5.2.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.6.0",
+    "tslint-react": "^3.2.0",
+    "typescript": "^3.1.3",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3",
+    "webpack-merge": "^4.1.1"
+  },
+  "dependencies": {
+    "@types/styled-components": "^4.1.4",
+    "lowdb": "^1.0.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "source-map-loader": "^0.2.4",
+    "styled-components": "^4",
+    "styled-normalize": "^8.0.4",
+    "uuid": "^3.3.2"
+  },
+  "browserslist": "electron 1.6"
+}
