@@ -81,10 +81,7 @@ class Project extends React.Component<ProjectProps, ProjectState> {
     const { project, ready, showCreateColorForm } = this.state;
     return project.name && ready ? (
       <div>
-        <Button onClick={handleBack}>
-          {'< '}
-          Back
-        </Button>
+        <Button onClick={handleBack}>Back</Button>
         <ProjectTitle
           title={project.name}
           onClick={this.handleShowCreateColorForm}
