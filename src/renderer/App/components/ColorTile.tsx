@@ -51,7 +51,7 @@ class ColorTile extends React.Component<ColorTileProps, ColorTileState> {
     clearTimeout(this.timeOut);
     this.timeOut = setTimeout(() => {
       this.setState({ showDetails: true });
-    }, 1000);
+    }, 600);
   };
 
   handleCopy = () => {

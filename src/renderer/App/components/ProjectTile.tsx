@@ -59,7 +59,7 @@ class ProjectTile extends React.Component<ProjectTileProps, ProjectTileState> {
     clearTimeout(this.showDetailTimeout as any);
     this.showDetailTimeout = setTimeout(() => {
       this.setState({ showDetails: true });
-    }, 1000);
+    }, 600);
   };
 
   handleSelect = () => {
