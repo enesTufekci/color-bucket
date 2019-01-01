@@ -2,6 +2,7 @@ import { app, BrowserWindow, ipcMain, clipboard } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 import db from '../db';
+import createMenu from './menu';
 
 let win: BrowserWindow | null;
 
@@ -61,5 +62,6 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   if (win === null) {
     createWindow();
+    createMenu(app);
   }
 });

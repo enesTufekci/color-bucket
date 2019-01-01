@@ -1,15 +1,17 @@
 import * as React from 'react';
-import { ProjectItem, Color } from '@renderer/screens/Projects';
 import styled from 'styled-components';
+
+import { ProjectItem, Color } from '@renderer/screens/Projects';
 import { createLinearGradient } from '@renderer/util';
 import Button from '@renderer/ui/Button';
+import { is } from '@renderer/util/styled-is';
 
 const ProjectTileWrapper = styled.div`
   width: calc(100% / 3 - 5px);
   padding: 5px;
 `;
 
-const ProjectTileStyled = styled.div<{ bg: string }>`
+const ProjectTileStyled = styled.div<{ bg: string; isDraft: boolean }>`
   border-radius: 5px;
   height: 128px;
   background: ${({ bg }) => bg};
@@ -25,6 +27,12 @@ const ProjectTileStyled = styled.div<{ bg: string }>`
   &:active {
     opacity: 0.5;
   }
+  ${is('isDraft')`
+    color: #444;
+    border: 2px dashed #444;
+    background: none;
+    box-shadow: none;
+  `};
 `;
 
 interface ProjectTileProps {
@@ -68,7 +76,11 @@ class ProjectTile extends React.Component<ProjectTileProps, ProjectTileState> {
 
     return (
       <ProjectTileWrapper onMouseDown={this.handleShowDetails}>
-        <ProjectTileStyled onMouseUp={this.handleSelect} bg={bg}>
+        <ProjectTileStyled
+          onMouseUp={this.handleSelect}
+          isDraft={project.colors.length === 0}
+          bg={bg}
+        >
           {!showDetails ? (
             project.name
           ) : (

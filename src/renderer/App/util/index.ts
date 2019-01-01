@@ -19,6 +19,9 @@ export function validateHexCode(hexCode: string) {
 
 export function createLinearGradient(colors: Color[]) {
   const length = colors.length;
+  if (length === 0) {
+    return '#000';
+  }
   if (length === 1) {
     return colors[0].hexCode;
   }
