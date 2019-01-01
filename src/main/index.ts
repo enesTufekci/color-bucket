@@ -51,7 +51,10 @@ const createWindow = async () => {
   });
 };
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+  createWindow();
+  createMenu(app);
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -62,6 +65,5 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   if (win === null) {
     createWindow();
-    createMenu(app);
   }
 });
