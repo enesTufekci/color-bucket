@@ -19,6 +19,9 @@ export function validateHexCode(hexCode: string) {
 
 export function createLinearGradient(colors: Color[]) {
   const length = colors.length;
+  if (length === 1) {
+    return colors[0].hexCode;
+  }
   const step = 100 / length;
   const colorMap = colors.map((color, index) => `${hexToRgbA(color.hexCode)} ${index * step}%`);
 

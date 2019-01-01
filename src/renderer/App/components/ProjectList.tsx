@@ -39,7 +39,14 @@ class ProjectList extends React.Component<ProjectListProps> {
       <ProjectListContainer>
         {projects.map(project => {
           const selectProject = () => handleSelect(project.id);
-          return <ProjectTile selectProject={selectProject} key={project.id} project={project} />;
+          return (
+            <ProjectTile
+              deleteProject={this.deleteProject(project.id)}
+              selectProject={selectProject}
+              key={project.id}
+              project={project}
+            />
+          );
         })}
       </ProjectListContainer>
     );
