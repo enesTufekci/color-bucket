@@ -51,6 +51,10 @@ class ProjectTile extends React.Component<ProjectTileProps, ProjectTileState> {
     showDetails: false
   };
 
+  componentWillUnmount() {
+    clearTimeout(this.showDetailTimeout as any);
+  }
+
   handleShowDetails = () => {
     clearTimeout(this.showDetailTimeout as any);
     this.showDetailTimeout = setTimeout(() => {
@@ -67,7 +71,10 @@ class ProjectTile extends React.Component<ProjectTileProps, ProjectTileState> {
     }
   };
 
-  hideDetails = () => this.setState({ showDetails: false });
+  hideDetails = () => {
+    clearTimeout(this.showDetailTimeout as any);
+    this.setState({ showDetails: false });
+  };
 
   render() {
     const { project, deleteProject } = this.props;
