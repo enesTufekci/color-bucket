@@ -19,12 +19,6 @@ module.exports = merge.smart(rendererBaseConfig, {
       }
     ]
   },
-  resolve: {
-    alias: {
-      '@renderer': path.resolve(`${paths.RENDERER_DIR}/App`),
-      '@db': path.resolve(`${paths.SRC}/db`)
-    }
-  },
   plugins: [new webpack.NamedModulesPlugin(), new webpack.HotModuleReplacementPlugin()],
   devtool: 'eval'
 });

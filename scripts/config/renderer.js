@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -49,6 +50,12 @@ module.exports = merge.smart(baseConfig, {
         loader: 'source-map-loader'
       }
     ]
+  },
+  resolve: {
+    alias: {
+      '@renderer': path.resolve(`${paths.RENDERER_DIR}/App`),
+      '@db': path.resolve(`${paths.SRC}/db`)
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({

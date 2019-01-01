@@ -4,7 +4,6 @@ import { AppContainer } from 'react-hot-loader';
 import App from './App';
 
 const mount = document.createElement('div');
-document.head.append();
 document.body.appendChild(mount);
 
 ReactDOM.render(

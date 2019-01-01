@@ -17,6 +17,8 @@ const installExtensions = async () => {
   ).catch(console.log);
 };
 
+console.log(process.env.NODE_ENV);
+
 const createWindow = async () => {
   const DB = await db;
   DB.defaults({ projects: [] }).write();
