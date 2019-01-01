@@ -31,7 +31,20 @@ class Project extends React.Component<ProjectProps, ProjectState> {
 
   componentDidMount() {
     this.fetchProject();
+    document.addEventListener('keydown', this.handleKeyboardEvents);
   }
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyboardEvents);
+  }
+
+  handleKeyboardEvents = (event: KeyboardEvent) => {
+    if (event.keyCode === 78 && event.metaKey) {
+      this.setState({ showCreateColorForm: true });
+    }
+    if (event.keyCode === 27) {
+      this.setState({ showCreateColorForm: false });
+    }
+  };
 
   fetchProject = async () => {
     const { db, projectId } = this.props;

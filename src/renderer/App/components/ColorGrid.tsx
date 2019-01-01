@@ -6,6 +6,7 @@ import styled from 'styled-components';
 const ColorGridStyled = styled.div`
   display: flex;
   margin: 0 -5px;
+  flex-wrap: wrap;
 `;
 
 interface ColorGridProps {

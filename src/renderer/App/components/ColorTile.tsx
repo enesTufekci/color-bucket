@@ -5,7 +5,7 @@ import { clipboard, ipcRenderer } from 'electron';
 import Button from '@renderer/ui/Button';
 
 const ColorTileWrapper = styled.div`
-  width: calc(100% / 3);
+  width: calc(100% / 3 - 10px);
   padding: 5px;
 `;
 
